@@ -16,10 +16,14 @@ class SecondViewControllerCoordinator: NavigationBarCoordinator {
         navigationController.tabBarItem = UITabBarItem(title: "SecondVC", image: nil, selectedImage: nil)
         navigationController.pushViewController(vc, animated: false)
         vc.navigationItem.title = "SecondViewController"
-        vc.coordinator = self
+        vc.delegate = self
     }
     
     init() {
         navigationController = UINavigationController()
     }
+}
+
+extension SecondViewControllerCoordinator: SecondViewControllerDelegate {
+    
 }

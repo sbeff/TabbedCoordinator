@@ -8,9 +8,13 @@
 
 import UIKit
 
+protocol SecondViewControllerDelegate: class {
+    
+}
+
 class SecondViewController: UIViewController, Storyboarded {
     
-    weak var coordinator: SecondViewControllerCoordinator?
+    weak var delegate: SecondViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()

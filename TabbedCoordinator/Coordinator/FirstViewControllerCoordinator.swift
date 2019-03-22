@@ -16,10 +16,18 @@ class FirstViewControllerCoordinator: NavigationBarCoordinator {
         navigationController.tabBarItem = UITabBarItem(title: "FirstVC", image: nil, selectedImage: nil)
         navigationController.pushViewController(vc, animated: false)
         vc.navigationItem.title = "FirstViewController"
-        vc.coordinator = self
+        vc.delegate = self
     }
     
     init() {
         navigationController = UINavigationController()
+    }
+}
+
+extension FirstViewControllerCoordinator: FirstViewControllerDelegate {
+    func firstViewControllerDidPressButton(vc: FirstViewController) {
+        let alert = UIAlertController(title: "Button pressed", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        vc.present(alert, animated: true, completion: nil)
     }
 }
